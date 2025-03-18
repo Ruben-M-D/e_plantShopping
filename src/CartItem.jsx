@@ -40,6 +40,14 @@ const CartItem = ({ onContinueShopping }) => {
     return parseFloat(item.cost.substring(1)) * item.quantity;
   };
 
+  const calculateTotalInCart = () => {
+    let t = 0;
+    cart.forEach((c) => {
+      t += c.quantity;
+    });
+    return t;
+  }
+
   const handleCheckoutShopping = (e) => {
     alert('Functionality to be added for future reference');
   };
@@ -47,6 +55,7 @@ const CartItem = ({ onContinueShopping }) => {
   return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Items in cart: {calculateTotalInCart()}</h2>
       <div>
         {cart.map((item) => (
           <div className="cart-item" key={item.name}>
